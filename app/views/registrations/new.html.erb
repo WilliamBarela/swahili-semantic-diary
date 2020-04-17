@@ -1,0 +1,24 @@
+<h1>Swahili Semantic Diary</h1>
+
+<article class="sign-up-form">
+  <%= form_for(@author, url: registrations_path(@author)) do |f| %>
+    <ul class="form-fields">
+      <li><%= f.label :first_name %></li>
+      <li><%= f.text_field :first_name %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :last_name %></li>
+      <li><%= f.text_field :last_name %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :email %></li>
+      <li><%= f.text_field :email %></li>
+    </ul>
+
+    <section class="submit-button">
+      <%= f.submit "Sign Up" %>
+    </section>
+  <% end %>
+</article>

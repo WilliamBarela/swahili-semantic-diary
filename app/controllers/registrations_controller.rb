@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
 #          registration      DELETE       /registrations/:id(.:format)     registrations#destroy
 
   def new
+    @author = Author.new
   end
 
   def create
