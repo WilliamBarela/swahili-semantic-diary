@@ -4,4 +4,12 @@ class RegistrationsController < ApplicationController
 #      new_registration      GET          /registrations/new(.:format)     registrations#new
 #          registration      DELETE       /registrations/:id(.:format)     registrations#destroy
 
+  def new
+  end
+
+  def create
+  end
+
+  def destroy
+  end
 end
