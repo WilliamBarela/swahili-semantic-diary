@@ -4,4 +4,12 @@ class SessionsController < ApplicationController
 #     new_session   GET         /sessions/new(.:format)       sessions#new
 #         session   DELETE      /sessions/:id(.:format)       sessions#destroy
 
+  def new
+  end
+
+  def create
+  end
+
+  def destroy
+  end
 end
