@@ -9,8 +9,20 @@ class RegistrationsController < ApplicationController
   end
 
   def create
+    @author = Author.new(author_params)
+    if @author.save
+      session[:author_id] = @author.id
+      redirect_to new_author_story_path(@author)
+    else
+      render :new
+    end
   end
 
   def destroy
+  end
+
+  private
+  def author_params
+    params.require(:author).permit(:first_name, :last_name, :email, :password)
   end
 end
