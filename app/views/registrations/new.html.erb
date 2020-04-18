@@ -1,7 +1,7 @@
 <h1>Swahili Semantic Diary</h1>
 
 <article class="sign-up-form">
-  <%= form_for(@author, url: registrations_path(@author)) do |f| %>
+  <%= form_for(@author, url: sign_up_path(@author)) do |f| %>
     <ul class="form-fields">
       <li><%= f.label :first_name %></li>
       <li><%= f.text_field :first_name %></li>
