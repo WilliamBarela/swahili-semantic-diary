@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    current_author.admin if current_author
+    if logged_in?
+      redirect_to author_stories_path(current_author) unless current_author.admin
+    else
+      redirect_to login_path
+    end
   end
 end
