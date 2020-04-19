@@ -23,4 +23,10 @@ class AuthorsController < ApplicationController
       @author = current_author
     end
   end
+
+  def edit
+  end
+
+  def update
+  end
 end
