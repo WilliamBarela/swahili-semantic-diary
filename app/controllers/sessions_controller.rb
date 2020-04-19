@@ -9,8 +9,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @author = Author.find_by(email: params[:author][:email])
-    if @author && @author.authenticate(params[:author][:password])
+    # FIXME: add a check to keep login from erroring out when a user not in database is entered
+    @author = Author.find_by(email: params[:author][:email]) || Author.new
+    if @author && !@author.email.nil? && @author.authenticate(params[:author][:password])
       session[:author_id] = @author.id
       redirect_to author_stories_path(@author)
     else
