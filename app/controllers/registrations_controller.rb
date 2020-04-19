@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
     @author = Author.new(author_params)
     if @author.save
       session[:author_id] = @author.id
-      redirect_to new_author_story_path(@author)
+      redirect_to author_stories_path(@author)
     else
       render :new
     end
