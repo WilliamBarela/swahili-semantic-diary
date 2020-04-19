@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
 
   def show
     if is_admin?
-      @author = Author.find(params[:id])
+      @author = Author.find_by_id!(params[:id])
     else
       @author = current_author
     end
