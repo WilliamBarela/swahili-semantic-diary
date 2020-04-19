@@ -12,5 +12,6 @@ class AuthorsController < ApplicationController
   before_action :is_admin?, only: [:index]
 
   def index
+    @authors = Author.all
   end
 end
