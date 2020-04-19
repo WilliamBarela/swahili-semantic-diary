@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_author, :logged_in?, :authenticate_author!
+  helper_method :current_author, :logged_in?, :authenticate_author!, :is_admin?, :redirect_if_not_admin
 
   private
 
