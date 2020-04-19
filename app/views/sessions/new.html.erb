@@ -1,0 +1,19 @@
+<h1>Swahili Semantic Diary Sign In</h1>
+
+<article class="sign-in-form">
+  <%= form_for(@author, url: login_path(@author)) do |f| %>
+    <ul class="form-fields">
+      <li><%= f.label :email %></li>
+      <li><%= f.text_field :email %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :password %></li>
+      <li><%= f.text_field :password %></li>
+    </ul>
+
+    <section class="submit-button">
+      <%= f.submit "Log in" %>
+    </section>
+  <% end %>
+</article>
