@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 #         session   DELETE      /sessions/:id(.:format)       sessions#destroy
 
   def new
+    @author = Author.new
   end
 
   def create
