@@ -1,7 +1,7 @@
 <h1>Swahili Semantic Diary Sign In</h1>
 
 <article class="sign-in-form">
-  <%= form_for(@author, url: login_path(@author)) do |f| %>
+  <%= form_for(@author, url: login_path) do |f| %>
     <ul class="form-fields">
       <li><%= f.label :email %></li>
       <li><%= f.text_field :email %></li>
