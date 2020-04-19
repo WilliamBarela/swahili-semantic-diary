@@ -25,6 +25,7 @@ class AuthorsController < ApplicationController
   end
 
   def edit
+    @author = set_author_if_admin(params[:id])
   end
 
   def update
