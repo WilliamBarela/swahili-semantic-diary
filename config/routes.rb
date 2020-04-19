@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :authors, only: [:show, :edit] do
     resources :stories
   end
+
+  resources :authors, only: [:index]
 end
