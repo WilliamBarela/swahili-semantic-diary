@@ -1,0 +1,8 @@
+<h1>Swahili Semantic Diary Authors</h1>
+
+<% @authors.each do |author|%>
+  <section class="author-card">
+    <h2><%= "#{author.first_name} #{author.last_name}" %></h2>
+    <h3><%= "#{author.email}" %></h3>
+  </section>
+<% end %>
