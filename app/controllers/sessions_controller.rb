@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @author = Author.find_by(email: params[:author][:email])
     if @author && @author.authenticate(params[:author][:password])
       session[:author_id] = @author.id
-      redirect_to new_author_story_path(@author)
+      redirect_to author_stories_path(@author)
     else
       render :new
     end
