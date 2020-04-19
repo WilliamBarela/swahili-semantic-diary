@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def authenticate_author!
     redirect_to login_path if !logged_in?
   end
+
+  def is_admin?
+    current_author.admin if current_author
+  end
 end
