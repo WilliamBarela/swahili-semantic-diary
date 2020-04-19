@@ -9,7 +9,8 @@ class AuthorsController < ApplicationController
   #                  PUT          /authors/:id(.:format)           authors#update
   #                  DELETE       /authors/:id(.:format)           authors#destroy
 
-  before_action :authenticate_author!, :is_admin?, only: [:index]
+  before_action :authenticate_author!
+  before_action :redirect_if_not_admin, only: [:index]
 
   def index
     @authors = Author.all
