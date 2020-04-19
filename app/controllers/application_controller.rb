@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_author, :logged_in?
+  helper_method :current_author, :logged_in?, :authenticate_author!
 
   private
 
@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_author
+  end
+
+  def authenticate_author!
+    redirect_to login_path if !logged_in?
   end
 end
