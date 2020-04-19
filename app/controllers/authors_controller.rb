@@ -15,4 +15,12 @@ class AuthorsController < ApplicationController
   def index
     @authors = Author.all
   end
+
+  def show
+    if is_admin?
+      @author = Author.find(params[:id])
+    else
+      @author = current_author
+    end
+  end
 end
