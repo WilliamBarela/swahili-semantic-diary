@@ -17,11 +17,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    if is_admin?
-      @author = Author.find_by_id!(params[:id])
-    else
-      @author = current_author
-    end
+    @author = set_author_if_admin(params[:id])
   end
 
   def edit
@@ -29,5 +25,18 @@ class AuthorsController < ApplicationController
   end
 
   def update
+    @author = Author.find_by_id!(params[:id])
+    params[:author][:admin] = false unless is_admin?
+
+    if @author.update(author_params)
+      redirect_to author_path(params[:id])
+    else
+      render :edit
+    end
+  end
+
+  private
+  def author_params
+    params.require(:author).permit(:first_name, :last_name, :email, :admin)
   end
 end
