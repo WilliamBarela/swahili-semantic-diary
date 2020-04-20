@@ -10,7 +10,7 @@ class AuthorsController < ApplicationController
   #                  DELETE       /authors/:id(.:format)           authors#destroy
 
   before_action :authenticate_author!
-  before_action :redirect_if_not_admin, only: [:index]
+  before_action :redirect_if_not_admin, only: [:index, :destroy]
 
   def index
     @authors = Author.all
@@ -33,6 +33,11 @@ class AuthorsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    Author.find_by_id!(params[:id]).destroy
+    redirect_to authors_path
   end
 
   private
