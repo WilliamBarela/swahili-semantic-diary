@@ -10,13 +10,9 @@ class SessionsController < ApplicationController
 
   def create
     @author = Author.find_by(email: params[:author][:email]) || Author.new
-    if @author && !@author.email.nil? && @author.authenticate(params[:author][:password])
+    if non_nil_author_authenticates(@author, params)
       session[:author_id] = @author.id
-      if is_admin?
-        redirect_to authors_path
-      else
-        redirect_to author_stories_path(@author)
-      end
+      route_created_session(@author)
     else
       render :new
     end

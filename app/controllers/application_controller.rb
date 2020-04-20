@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_author, :logged_in?, :authenticate_author!, :is_admin?, :redirect_if_not_admin, :set_author_if_admin
+  helper_method :current_author, :logged_in?, :authenticate_author!, :is_admin?, :redirect_if_not_admin, :set_author_if_admin, :route_created_session, :non_nil_author_authenticates
 
   private
 
@@ -28,6 +28,18 @@ class ApplicationController < ActionController::Base
       author = Author.find_by_id!(author_id)
     else
       author = current_author
+    end
+  end
+
+  def non_nil_author_authenticates(author, params)
+    author && !author.email.nil? && author.authenticate(params[:author][:password])
+  end
+
+  def route_created_session(author)
+    if is_admin?
+      redirect_to authors_path
+    else
+      redirect_to author_stories_path(@author)
     end
   end
 end
