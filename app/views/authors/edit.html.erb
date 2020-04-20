@@ -1,1 +1,29 @@
 <h1><%= "Edit #{possessive_display_name(@author)} Profile" %></h1>
+
+<article class="edit-form">
+  <%= form_for(@author, url: author_path(@author)) do |f| %>
+    <ul class="form-fields">
+      <li><%= f.label :first_name %></li>
+      <li><%= f.text_field :first_name %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :last_name %></li>
+      <li><%= f.text_field :last_name %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :email %></li>
+      <li><%= f.text_field :email %></li>
+    </ul>
+
+    <ul class="form-fields">
+      <li><%= f.label :admin%></li>
+      <li><%= f.check_box :admin%></li>
+    </ul>
+
+    <section class="submit-button">
+      <%= f.submit "Update" %>
+    </section>
+  <% end %>
+</article>
