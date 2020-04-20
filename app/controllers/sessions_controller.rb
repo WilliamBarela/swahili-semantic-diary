@@ -9,11 +9,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # FIXME: add a check to keep login from erroring out when a user not in database is entered
     @author = Author.find_by(email: params[:author][:email]) || Author.new
     if @author && !@author.email.nil? && @author.authenticate(params[:author][:password])
       session[:author_id] = @author.id
-      redirect_to author_stories_path(@author)
+      if is_admin?
+        redirect_to authors_path
+      else
+        redirect_to author_stories_path(@author)
+      end
     else
       render :new
     end
