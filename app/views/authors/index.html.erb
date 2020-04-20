@@ -4,5 +4,6 @@
   <section class="author-card">
     <h2><%= "#{author.first_name} #{author.last_name}" %></h2>
     <h3><%= "#{author.email}" %></h3>
+    <button><%= link_to "Delete", author, method: :delete, data: {confirm: "Are you sure you want to delete #{display_name(author)}?"}%></button>
   </section>
 <% end %>
