@@ -1,5 +1,11 @@
 <h1>Swahili Semantic Diary Sign In</h1>
 
+<% if flash[:alert] %>
+  <ul class="flash-alert">
+    <li><%= flash[:alert] %></li>
+  </ul>
+<% end %>
+
 <article class="sign-in-form">
   <%= form_for(@author, url: login_path) do |f| %>
     <ul class="form-fields">

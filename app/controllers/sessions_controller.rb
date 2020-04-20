@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       session[:author_id] = @author.id
       route_created_session(@author)
     else
-      render :new
+      flash[:alert] = "Email or password is incorrect"
+      redirect_to login_path
     end
   end
 
