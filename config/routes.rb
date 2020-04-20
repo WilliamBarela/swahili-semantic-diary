@@ -13,9 +13,7 @@ Rails.application.routes.draw do
 
   # resources :sessions, only: [:new, :create, :destroy]
 
-  resources :authors, only: [:show, :edit] do
+  resources :authors, only: [:index, :show, :edit, :update] do
     resources :stories
   end
-
-  resources :authors, only: [:index]
 end
