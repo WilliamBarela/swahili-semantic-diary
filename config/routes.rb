@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
-  # resources :sessions, only: [:new, :create, :destroy]
-
   resources :authors, only: [:index, :show, :edit, :update, :destroy] do
     resources :stories
   end
