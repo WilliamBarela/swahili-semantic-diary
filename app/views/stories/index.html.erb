@@ -4,7 +4,7 @@
 
 <h2>Stories</h2>
 <article>
-  <% @author.stories.each do |story| %>
+  <% @author.stories.reverse.each do |story| %>
     <h3><%= story.story_title %></h3>
     <p><%= story.story %></p>
   <% end %>
