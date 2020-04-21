@@ -1,3 +1,11 @@
 <h1> <%= "#{@author.first_name}'s" %> Swahili Diary</h1>
 <button> <%= link_to "Edit Profile", edit_author_path(@author) %> </button>
 <% # render 'new' %>
+
+<h2>Stories</h2>
+<article>
+  <% @author.stories.each do |story| %>
+    <h3><%= story.story_title %></h3>
+    <p><%= story.story %></p>
+  <% end %>
+</article>
