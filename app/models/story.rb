@@ -3,4 +3,7 @@ class Story < ApplicationRecord
   
   validates :story_title, :story,
     presence: true
+
+  validates :story_title,
+    uniqueness: true
 end
