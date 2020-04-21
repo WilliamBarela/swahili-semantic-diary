@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
 
   def new
     @story = Story.new
+    @author = current_author
   end
 
   def create
