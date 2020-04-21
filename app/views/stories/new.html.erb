@@ -1,3 +1,8 @@
 <article class="new-story-card">
   <h1>Write a New Swahili Diary Entry</h1>
+  <%= form_with model: [current_author, @story], class: "new-story-form" do |f| %>
+    <section><%= f.text_field :story_title %></section>
+    <section><%= f.text_area :story %></section>
+    <%= f.submit "Publish" %>
+  <% end %>
 </article>
