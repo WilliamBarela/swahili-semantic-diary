@@ -1,6 +1,15 @@
+<% if @story.errors.any? %>
+  <ul class="errors">
+    <% @story.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <article class="new-story-card">
   <h1>Write a New Swahili Diary Entry</h1>
-  <%= form_with model: [@author, @story], url: author_stories_path(@author, @story), class: "new-story-form" do |f| %>
+  <%= form_with model: [current_author, @story], local: true, url: author_stories_path(current_author, @story), class: "new-story-form" do |f| %>
     <section><%= f.text_field :story_title %></section>
     <section><%= f.text_area :story %></section>
     <%= f.submit "Publish" %>
