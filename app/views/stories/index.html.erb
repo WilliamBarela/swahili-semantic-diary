@@ -3,6 +3,7 @@
 <% # render 'new' %>
 
 <h2>Stories</h2>
+<h3><%= link_to "Write New Story",  new_author_story_path %></h3>
 <article>
   <% @author.stories.reverse.each do |story| %>
     <h3><%= story.story_title %></h3>
