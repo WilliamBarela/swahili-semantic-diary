@@ -8,5 +8,6 @@
   <% @author.stories.reverse.each do |story| %>
     <h3><%= story.story_title %></h3>
     <p><%= story.story %></p>
+    <button><%= link_to "Delete Story", author_story_path(current_author,story), method: :delete %></button>
   <% end %>
 </article>
