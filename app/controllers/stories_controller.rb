@@ -18,6 +18,11 @@ class StoriesController < ApplicationController
     end
   end
 
+  def destroy
+    Story.find_by_id!(params[:id]).destroy
+    redirect_to author_stories_path
+  end
+
   private
   def story_params
     params.require(:story).permit(:story_title, :story)
