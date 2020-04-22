@@ -6,13 +6,11 @@ class StoriesController < ApplicationController
   end
 
   def new
-    @story = Story.new
-    @author = current_author
+    @story = current_author.stories.build
   end
 
   def create
-    @story = Story.new(story_params)
-    @story.author_id = current_author.id
+    @story = current_author.stories.build(story_params)
     if @story.save
       redirect_to author_stories_path
     else
