@@ -4,5 +4,6 @@
 </article>
 
 <% if !is_admin? %>
-  <%= button_to "Author's Stories", author_stories_path(current_author), method: :get %>
+  <%= button_to "Your Stories", author_stories_path(current_author), method: :get %>
+  <%= button_to "Edit", edit_author_story_path(@story), method: :get %>
 <% end %>
