@@ -29,7 +29,7 @@ class AuthorsController < ApplicationController
     params[:author][:admin] = false unless is_admin?
 
     if @author.update(author_params)
-      redirect_to author_path(params[:id])
+      redirect_to author_stories_path(params[:id])
     else
       render :edit
     end
