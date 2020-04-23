@@ -5,3 +5,7 @@
 <h1><%= "#{possessive_display_name(@author)} Profile" %></h1>
 <h2><%= @author.email %></h2>
 <button><%= link_to "Edit Profile", edit_author_path(@author) %></button>
+
+<% if !is_admin? %>
+  <%= button_to "Author's Stories", author_stories_path(current_author), method: :get %>
+<% end %>
