@@ -1,0 +1,8 @@
+<article>
+  <h1>Story Title: <%= @story.story_title %></h1>
+  <p><%= @story.story %></p>
+</article>
+
+<% if !is_admin? %>
+  <%= button_to "Author's Stories", author_stories_path(current_author), method: :get %>
+<% end %>
