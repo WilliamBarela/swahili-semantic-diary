@@ -22,6 +22,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# add gem for omniauth
+gem 'omniauth'
+
+# Twitter requires users to get their apps approved...takes time.
+# add gem for twitter omniauth
+# gem 'omniauth-twitter'
+
+# Github no long allows one to use the user's email unless they explicitly share it.
+# add omniauth gem for github
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
