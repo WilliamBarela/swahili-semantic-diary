@@ -22,6 +22,10 @@ class StoriesController < ApplicationController
     @story = Story.find_by_id!(params[:id])
   end
 
+  def edit
+    @story = Story.find_by_id!(params[:id])
+  end
+
   def destroy
     Story.find_by_id!(params[:id]).destroy
     redirect_to author_stories_path
