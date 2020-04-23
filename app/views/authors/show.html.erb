@@ -1,3 +1,7 @@
+<% if current_author.admin %>
+  <%= button_to "Author List", authors_path, method: :get%>
+<% end %>
+
 <h1><%= "#{possessive_display_name(@author)} Profile" %></h1>
 <h2><%= @author.email %></h2>
 <button><%= link_to "Edit Profile", edit_author_path(@author) %></button>
