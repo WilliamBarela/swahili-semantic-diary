@@ -26,10 +26,12 @@
       <li><%= f.text_field :email %></li>
     </ul>
 
-    <ul class="form-fields">
-      <li><%= f.label :admin%></li>
-      <li><%= f.check_box :admin%></li>
-    </ul>
+    <% if current_author.admin %>
+      <ul class="form-fields">
+        <li><%= f.label :admin%></li>
+        <li><%= f.check_box :admin%></li>
+      </ul>
+  <% end %>
 
     <section class="submit-button">
       <%= f.submit "Update" %>
