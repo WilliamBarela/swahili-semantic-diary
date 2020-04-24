@@ -9,11 +9,7 @@
 
 <article class="new-story-card">
   <h1>Edit Your Swahili Diary Entry</h1>
-  <%= form_with model: [current_author, @story], local: true, url: author_story_path(current_author, @story), class: "new-story-form" do |f| %>
-    <section><%= f.text_field :story_title %></section>
-    <section><%= f.text_area :story %></section>
-    <%= f.submit "Update" %>
-  <% end %>
+  <%= render partial: "new_edit_form", locals: {story: @story} %>
 </article>
 
 <% if !is_admin? %>
