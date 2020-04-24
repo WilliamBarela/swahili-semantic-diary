@@ -33,3 +33,6 @@ yarn-debug.log*
 
 # ignore notes for myself
 TODO.md
+
+# temporarily ignore omniauth initializer
+config/initializers/omniauth.rb
