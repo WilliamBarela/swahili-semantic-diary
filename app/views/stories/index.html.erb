@@ -1,3 +1,9 @@
+<% if flash[:alert] %>
+  <ul class="flash-alert">
+    <li><%= flash[:alert] %></li>
+  </ul>
+<% end %>
+
 <h1> <%= "#{@author.first_name}'s" %> Swahili Diary</h1>
 <button> <%= link_to "Edit Profile", edit_author_path(@author) %> </button>
 <% # render 'new' %>
