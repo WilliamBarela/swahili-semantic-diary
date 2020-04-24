@@ -30,7 +30,8 @@ class StoriesController < ApplicationController
     @story = Story.find_by_id!(params[:id])
 
     if @story.update(story_params)
-      redirect_to author_story_path(@story)
+      flash[:alert] ="Your story was updated!"
+      redirect_to author_stories_path(@story)
     else
       render :edit
     end
