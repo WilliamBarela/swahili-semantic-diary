@@ -1,17 +1,5 @@
-<% if @story.errors.any? %>
-  <ul class="errors">
-    <% @story.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
-<article class="new-story-card">
+<article class="edit-story-card">
   <h1>Edit Your Swahili Diary Entry</h1>
-  <%= render partial: "new_edit_form", locals: {story: @story} %>
+  <%= render partial: "new_edit_form", locals: {story: @story}, layout: "new_edit_layout" %>
 </article>
 
-<% if !is_admin? %>
-  <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
-<% end %>
