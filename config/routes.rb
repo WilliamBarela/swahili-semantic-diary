@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'delete-account/:author_id', to: 'registrations#destroy'
 
   get 'login', to: 'sessions#new'
+  get 'auth/:provider/callback', to: 'sessions#create'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
