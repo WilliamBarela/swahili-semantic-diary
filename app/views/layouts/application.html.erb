@@ -19,6 +19,10 @@
       </ul>
     <% end %>
 
+    <% if is_admin? %>
+      <%= button_to "Author List", authors_path, method: :get%>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
