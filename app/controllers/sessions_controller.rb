@@ -10,19 +10,17 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      oauth_username = request.env["omniauth.auth"]["extra"]["raw_info"]["login"]
+      @author = Author.find_or_create_by_omniauth(auth_hash)
+      session[:author_id] = @author.id
 
-      if @author = Author.find_by(:username => oauth_username)
-        session[:author_id] = @author.id
-        route_created_session(@author)
-      else
-        @author = Author.new(:username => oauth_username, :password => SecureRandom.hex)
-        @author.save!(:validate => false)
-        session[:author_id] = @author.id
+      if @author.email.nil?
         redirect_to edit_author_path(@author)
+      else
+        route_created_session(@author)
       end
     else
       @author = Author.find_by(email: params[:author][:email]) || Author.new
+
       if non_nil_author_authenticates(@author, params)
         session[:author_id] = @author.id
         route_created_session(@author)
