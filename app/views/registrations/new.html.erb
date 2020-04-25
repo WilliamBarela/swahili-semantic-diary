@@ -1,13 +1,6 @@
 <h1>Sign Up for Swahili Semantic Diary</h1>
 
-<% if @author.errors.any? %>
-  <ul class="errors">
-    <% @author.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
+<%= render partial: "authors/errors", locals: {author: @author} %>
 
 <article class="sign-up-form">
   <%= form_for(@author, url: sign_up_path(@author)) do |f| %>
