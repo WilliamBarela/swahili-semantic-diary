@@ -1,0 +1,8 @@
+<% if author.errors.any? %>
+  <ul class="errors">
+    <% author.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
