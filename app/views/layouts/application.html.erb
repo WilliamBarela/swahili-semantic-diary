@@ -10,18 +10,20 @@
   </head>
 
   <body>
-    <% if current_author %>
-      <%= link_to "Log out", logout_path, method: :get %>
-    <% else %>
-      <ul>
-        <li><%= link_to "Sign up", sign_up_path, method: :get %></li>
-        <li><%= link_to "Log in", login_path, method: :get %></li>
-      </ul>
-    <% end %>
+    <nav>
+      <% if current_author %>
+        <%= link_to "Log out", logout_path, method: :get %>
+      <% else %>
+        <span>
+          <%= link_to "Sign up", sign_up_path, method: :get %> |
+          <%= link_to "Log in", login_path, method: :get %>
+        </span>
+      <% end %>
 
-    <% if is_admin? %>
-      <%= button_to "Author List", authors_path, method: :get%>
-    <% end %>
+      <% if is_admin? %>
+        <%= button_to "Author List", authors_path, method: :get%>
+      <% end %>
+    </nav>
 
     <%= yield %>
   </body>
