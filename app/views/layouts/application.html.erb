@@ -12,7 +12,7 @@
   <body>
     <nav>
       <% if current_author %>
-        <%= link_to "Log out", logout_path, method: :get %>
+        <%= link_to "Log out #{display_name(current_author)}", logout_path, method: :get %>
       <% else %>
         <span>
           <%= link_to "Sign up", sign_up_path, method: :get %> |
