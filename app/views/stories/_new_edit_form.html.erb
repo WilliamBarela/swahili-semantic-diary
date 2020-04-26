@@ -1,5 +1,5 @@
 <%= form_with model: [current_author, story], local: true, class: "new-story-form" do |f| %>
-  <section><%= f.text_field :story_title %></section>
-  <section><%= f.text_area :story %></section>
+  <%= f.text_field :story_title, :placeholder => "Story's title", :autofocus => true  %>
+  <%= f.text_area :story, :placeholder => "Swahili story" %>
   <%= f.submit "Publish" %>
 <% end %>
