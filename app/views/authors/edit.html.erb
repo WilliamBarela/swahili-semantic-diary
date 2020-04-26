@@ -1,37 +1,26 @@
-<h1><%= "Edit #{possessive_display_name(@author)} Profile" %></h1>
+<main>
+  <h1>Edit<%= " #{possessive_display_name(@author) if is_admin?}" %> Profile</h1>
 
-<%= render partial: "errors", locals: {author: @author} %>
+  <%= render partial: "errors", locals: {author: @author} %>
 
-<article class="edit-form">
-  <%= form_for(@author, url: author_path(@author)) do |f| %>
-    <ul class="form-fields">
-      <li><%= f.label :first_name %></li>
-      <li><%= f.text_field :first_name %></li>
-    </ul>
+  <article class="edit-card">
+    <%= form_for(@author, url: author_path(@author)) do |f| %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :email %>
 
-    <ul class="form-fields">
-      <li><%= f.label :last_name %></li>
-      <li><%= f.text_field :last_name %></li>
-    </ul>
+      <% if current_author.admin %>
+        <div class="label-checkbox">
+          <%= f.label :admin%>
+          <%= f.check_box :admin%>
+        </div>
+      <% end %>
 
-    <ul class="form-fields">
-      <li><%= f.label :email %></li>
-      <li><%= f.text_field :email %></li>
-    </ul>
-
-    <% if current_author.admin %>
-      <ul class="form-fields">
-        <li><%= f.label :admin%></li>
-        <li><%= f.check_box :admin%></li>
-      </ul>
-  <% end %>
-
-    <section class="submit-button">
       <%= f.submit "Update" %>
-    </section>
-  <% end %>
-</article>
+      <% end %>
+  </article>
 
-<% if !is_admin? %>
-  <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
-<% end %>
+  <% if !is_admin? %>
+    <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
+  <% end %>
+</main>
