@@ -1,19 +1,19 @@
-<% if flash[:alert] %>
-  <ul class="flash-alert">
-    <li><%= flash[:alert] %></li>
-  </ul>
-<% end %>
-
-<h1> <%= "#{@author.first_name}'s" %> Swahili Diary</h1>
-<button> <%= link_to "Edit Profile", edit_author_path(@author) %> </button>
-<% # render 'new' %>
-
-<h2>Stories</h2>
-<h3><%= link_to "Write New Story",  new_author_story_path %></h3>
-<article>
-  <% @author.stories.reverse.each do |story| %>
-    <h3><%= link_to story.story_title, author_story_path(current_author, story), method: :get %></h3>
-    <p><%= story.story %></p>
-    <button><%= link_to "Delete Story", author_story_path(current_author,story), method: :delete %></button>
+<main>
+  <% if flash[:alert] %>
+    <ul class="flash-alert">
+      <li><%= flash[:alert] %></li>
+    </ul>
   <% end %>
-</article>
+
+  <h1><%= link_to "#{@author.first_name}'s", edit_author_path(@author) %> Swahili Diary</h1>
+  <% # render 'new' %>
+
+  <h3><%= link_to "Write New Story",  new_author_story_path %></h3>
+    <% @author.stories.reverse.each do |story| %>
+      <article class="story-card">
+        <h3><%= link_to story.story_title, author_story_path(current_author, story), method: :get %></h3>
+        <p><%= story.story %></p>
+        <button><%= link_to "Delete Story", author_story_path(current_author,story), method: :delete %></button>
+      </article>
+    <% end %>
+</main>
