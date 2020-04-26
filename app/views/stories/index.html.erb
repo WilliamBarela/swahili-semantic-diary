@@ -8,10 +8,6 @@
 <button> <%= link_to "Edit Profile", edit_author_path(@author) %> </button>
 <% # render 'new' %>
 
-<% if is_admin? %>
-  <%= button_to "Author List", authors_path, method: :get%>
-<% end %>
-
 <h2>Stories</h2>
 <h3><%= link_to "Write New Story",  new_author_story_path %></h3>
 <article>
