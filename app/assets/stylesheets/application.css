@@ -32,6 +32,11 @@ nav, main {
   justfy-content: center;
 }
 
+a:link, a:visited {
+  color: rgba(0,164,222,1);
+  text-decoration: none;
+}
+
 .sign-up-card, .sign-in-card, .edit-card{
   width: 300px;
 }
