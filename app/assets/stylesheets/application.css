@@ -41,17 +41,26 @@ a:link, a:visited {
   width: 300px;
 }
 
-.new_author, .edit_author{
+.new_author, .edit_author, .new-story-form{
   display: flex;
   flex-direction: column;
 }
 
-input{
+input, textarea{
   margin-top: 5px;
   margin-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+input{
   height: 30px;
+}
+
+textarea{
+  height: 500px;
+  padding-top:10px;
+  line-height: 1.3em;
 }
 
 .label-checkbox {
@@ -62,4 +71,13 @@ input{
 input[type=checkbox]{
   height: 15px;
   width: 15px;
+}
+
+input[type=submit]{
+  width: 100px;
+}
+
+::selection {
+  color: rgba(0,102,0,1);
+  background: rgba(252,210,15,1);
 }
