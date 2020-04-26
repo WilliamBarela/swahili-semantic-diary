@@ -28,19 +28,29 @@ nav, main {
   justfy-content: center;
 }
 
-.sign-up-card, .sign-in-card{
+.sign-up-card, .sign-in-card, .edit-card{
   width: 300px;
 }
 
-.new_author{
+.new_author, .edit_author{
   display: flex;
   flex-direction: column;
 }
 
-.new_author > input{
+input{
   margin-top: 5px;
   margin-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   height: 30px;
+}
+
+.label-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+input[type=checkbox]{
+  height: 15px;
+  width: 15px;
 }
