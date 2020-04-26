@@ -18,9 +18,9 @@
 
       <%= f.submit "Update" %>
       <% end %>
-  </article>
 
-  <% if !is_admin? %>
-    <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
-  <% end %>
+      <% if !is_admin? %>
+        <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
+      <% end %>
+  </article>
 </main>
