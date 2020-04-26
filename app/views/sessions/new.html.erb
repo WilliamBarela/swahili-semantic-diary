@@ -1,28 +1,19 @@
-<h1>Swahili Semantic Diary Sign In</h1>
+<main>
+  <h1>Swahili Semantic Diary</h1>
 
-<% if flash[:alert] %>
-  <ul class="flash-alert">
-    <li><%= flash[:alert] %></li>
-  </ul>
-<% end %>
-
-<article class="sign-in-form">
-  <%= form_for(@author, url: login_path) do |f| %>
-    <ul class="form-fields">
-      <li><%= f.label :email %></li>
-      <li><%= f.text_field :email %></li>
+  <% if flash[:alert] %>
+    <ul class="flash-alert">
+      <li><%= flash[:alert] %></li>
     </ul>
-
-    <ul class="form-fields">
-      <li><%= f.label :password %></li>
-      <li><%= f.text_field :password %></li>
-    </ul>
-
-    <section class="submit-button">
-      <%= f.submit "Log in" %>
-    </section>
   <% end %>
 
-  <%= link_to "Login via Github", "auth/github"%>
+  <article class="sign-in-card">
+    <%= form_for(@author, url: login_path) do |f| %>
+      <%= f.text_field :email, :placeholder => "email", :autofocus => true  %>
+      <%= f.password_field :password, :placeholder => "password" %>
+      <%= f.submit "Log in" %>
+    <% end %>
 
-</article>
+    <%= link_to "Login via Github", "auth/github"%>
+  </article>
+</main>
