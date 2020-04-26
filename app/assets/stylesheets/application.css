@@ -28,7 +28,7 @@ nav, main {
   justfy-content: center;
 }
 
-.sign-up-card{
+.sign-up-card, .sign-in-card{
   width: 300px;
 }
 
