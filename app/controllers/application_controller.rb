@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_author, :logged_in?, :authenticate_author!, :is_admin?, :redirect_if_not_admin, :set_author_if_admin, :route_created_session, :non_nil_author_authenticates
+  helper_method :current_author, :logged_in?, :authenticate_author!, :is_admin?, :redirect_if_not_admin, :set_author_if_admin, :route_created_session, :non_nil_author_authenticates, :current_story
 
   private
 
@@ -41,5 +41,9 @@ class ApplicationController < ActionController::Base
     else
       redirect_to author_stories_path(@author)
     end
+  end
+
+  def current_story
+    Story.find_by_id(params[:story_id])
   end
 end
