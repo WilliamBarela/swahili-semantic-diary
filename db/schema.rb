@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_030339) do
+ActiveRecord::Schema.define(version: 2020_04_27_170711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2020_04_25_030339) do
     t.string "username"
   end
 
+  create_table "glosses", force: :cascade do |t|
+    t.string "gloss"
+    t.bigint "word_id", null: false
+    t.bigint "story_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["story_id"], name: "index_glosses_on_story_id"
+    t.index ["word_id"], name: "index_glosses_on_word_id"
+  end
+
   create_table "stories", force: :cascade do |t|
     t.string "story_title"
     t.text "story"
@@ -35,5 +45,17 @@ ActiveRecord::Schema.define(version: 2020_04_25_030339) do
     t.index ["author_id"], name: "index_stories_on_author_id"
   end
 
+  create_table "words", force: :cascade do |t|
+    t.string "lemma"
+    t.string "lexical_category"
+    t.string "lemma_class"
+    t.string "notes"
+    t.string "origin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "glosses", "stories"
+  add_foreign_key "glosses", "words"
   add_foreign_key "stories", "authors"
 end

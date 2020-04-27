@@ -3,7 +3,7 @@ class CreateWords < ActiveRecord::Migration[6.0]
     create_table :words do |t|
       t.string :lemma
       t.string :lexical_category
-      t.string :class
+      t.string :lemma_class
       t.string :notes
       t.string :origin
 
