@@ -1,5 +1,8 @@
 class Story < ApplicationRecord
   belongs_to :author
+
+  has_many :glosses
+  has_many :lemmas, through: :glosses
   
   validates :story_title, :story,
     presence: true
