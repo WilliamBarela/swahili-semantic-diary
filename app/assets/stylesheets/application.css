@@ -37,6 +37,10 @@ a:link, a:visited {
   text-decoration: none;
 }
 
+a:hover{
+  color: rgba(0,164,222,0.7);
+}
+
 .sign-up-card, .sign-in-card, .edit-card{
   width: 300px;
 }
