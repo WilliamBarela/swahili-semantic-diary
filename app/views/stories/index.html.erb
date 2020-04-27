@@ -11,7 +11,7 @@
   <h3><%= link_to "Write New Story",  new_author_story_path %></h3>
     <% @author.stories.reverse.each do |story| %>
       <article class="story-card">
-        <h3><%= link_to story.story_title, author_story_path(current_author, story), method: :get %></h3>
+        <h3><%= link_to story.story_title, story_path(story), method: :get %></h3>
         <p><%= story.story %></p>
         <button><%= link_to "Delete Story", author_story_path(current_author,story), method: :delete %></button>
       </article>
