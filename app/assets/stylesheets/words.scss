@@ -1,3 +1,14 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.new-word-card{
+  width: 800px;
+  border-color: rgba(252,210,15,1);
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 15px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
