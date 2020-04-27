@@ -1,0 +1,9 @@
+<main>
+  <%= button_to("Your Stories", author_stories_path(current_author), method: :get) if !is_admin? %>
+
+  <article class="story-card">
+    <h1><%= current_story.story_title %></h1>
+    <p><%= current_story.story %></p>
+    <%= button_to("Edit", edit_author_story_path(current_author, current_story), method: :get) if !is_admin? %>
+  </article>
+</main>
