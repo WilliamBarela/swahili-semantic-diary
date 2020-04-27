@@ -77,6 +77,11 @@ input[type=submit]{
   width: 100px;
 }
 
+::-moz-selection{
+  color: rgba(0,102,0,1);
+  background: rgba(252,210,15,1);
+}
+
 ::selection {
   color: rgba(0,102,0,1);
   background: rgba(252,210,15,1);
