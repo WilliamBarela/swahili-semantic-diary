@@ -16,9 +16,9 @@ Rails.application.routes.draw do
     resources :stories, except: [:show]
   end
 
-  resources :stories, only: [:show] do
-    resources :lemmas, only: [:new, :create]
-  end
+  # resources :stories, only: [:show] do
+  #   resources :lemmas, only: [:new, :create]
+  # end
 
   scope '/admin' do
     resources :authors, only: [:index]
