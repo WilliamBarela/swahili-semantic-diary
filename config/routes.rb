@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
-  resources :authors, only: [:index, :show, :edit, :update, :destroy] do
+  resources :authors, only: [:show, :edit, :update, :destroy] do
     resources :stories
+  end
+
+  scope '/admin' do
+    resources :authors, only: [:index]
   end
 end
