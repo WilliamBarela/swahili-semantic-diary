@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gloss: MyString
+  word: one
+  story: one
+
+two:
+  gloss: MyString
+  word: two
+  story: two
