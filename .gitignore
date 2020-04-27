@@ -36,3 +36,6 @@ TODO.md
 
 # temporarily ignore omniauth initializer
 config/initializers/omniauth.rb
+
+# specifications
+specifications/spec.md
