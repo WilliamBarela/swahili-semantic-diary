@@ -1,0 +1,11 @@
+<main>
+  <h2>Top Authors</h2>
+  <% @most_stories.each do |item| %>
+    <% author = item[:author] %>
+    <section class="author-card">
+      <h2><%= link_to "#{author.first_name} #{author.last_name}", author_path(author), method: :get %></h2>
+      <h3><%= "#{author.email}" %></h3>
+      <h3>Total Number of Stories: <%= item[:num_stories] %></h3>
+    </section>
+  <% end %>
+</main>
