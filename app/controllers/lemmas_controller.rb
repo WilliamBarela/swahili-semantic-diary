@@ -1,0 +1,2 @@
+class LemmasController < ApplicationController
+end
