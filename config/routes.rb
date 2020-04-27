@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   resources :authors, only: [:show, :edit, :update, :destroy] do
-    resources :stories
+    resources :stories, except: [:show]
+  end
+
+  resources :stories, only: [:show] do
+    resources :lemmas, only: [:new, :create]
   end
 
   scope '/admin' do
