@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :authors, only: [:index]
   end
+
+  namespace :admin do
+    resources :stats, only: [:index]
+  end
 end
