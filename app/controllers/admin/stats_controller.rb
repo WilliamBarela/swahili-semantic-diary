@@ -4,5 +4,6 @@ class Admin::StatsController < ApplicationController
   before_action :redirect_if_not_admin
 
   def index
+    @most_stories = Author.most_stories
   end
 end
