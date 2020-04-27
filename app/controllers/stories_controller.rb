@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
   def create
     @story = current_author.stories.build(story_params)
     if @story.save
-      redirect_to story_path(@story)
+      redirect_to new_story_word_path(@story)
     else
       render :new
     end
