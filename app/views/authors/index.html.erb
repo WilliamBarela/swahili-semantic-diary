@@ -1,4 +1,5 @@
 <main>
+  <%= button_to "Author Stats", admin_stats_path, method: :get%>
   <h1>Swahili Semantic Diary Authors</h1>
   <% @authors.each do |author|%>
     <section class="author-card">

@@ -19,10 +19,6 @@
           <%= link_to "Log in", login_path, method: :get %>
         </span>
       <% end %>
-
-      <% if is_admin? %>
-        <%= button_to "Author List", authors_path, method: :get%>
-      <% end %>
     </nav>
 
     <%= yield %>

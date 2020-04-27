@@ -1,5 +1,6 @@
 <main>
-  <h2>Top Authors</h2>
+  <%= button_to "Author List", authors_path, method: :get%>
+  <h1>Top Authors</h1>
   <% @most_stories.each do |item| %>
     <% author = item[:author] %>
     <section class="author-card">
