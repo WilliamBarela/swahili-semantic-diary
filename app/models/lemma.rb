@@ -1,0 +1,2 @@
+class Lemma < ApplicationRecord
+end
