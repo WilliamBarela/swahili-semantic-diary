@@ -24,4 +24,10 @@ class Author < ApplicationRecord
 
     return author
   end
+
+  def self.most_stories
+    Story.joins(:author).group(:author_id).count.first(5).map do |item|
+      {:author => Author.find_by_id(item[0]), :num_stories => item[1]}
+    end
+  end
 end
