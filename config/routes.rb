@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :stories, only: [:show] do
-    resources :words, only: [:new, :create]
+    resources :words, only: [:new, :create, :destroy]
   end
 
   scope '/admin' do
