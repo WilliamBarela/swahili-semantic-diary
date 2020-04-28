@@ -16,4 +16,10 @@ class Word < ApplicationRecord
   #     self.glosses.build(gloss: gloss)
   #   end
   # end
+
+  def self.find_or_create_lemma(word_params)
+    Word.find_or_create_by(:lemma => word_params[:lemma],
+                           :lexical_category => word_params[:lexical_category],
+                           :lemma_class => word_params[:lemma_class])
+  end
 end
