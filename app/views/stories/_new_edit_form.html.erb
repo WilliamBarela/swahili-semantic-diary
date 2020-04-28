@@ -2,4 +2,7 @@
   <%= f.text_field :story_title, :placeholder => "Story's title", :autofocus => true  %>
   <%= f.text_area :story, :placeholder => "Swahili story" %>
   <%= f.submit "Publish" %>
+  <% if !story.id.nil? %>
+    <%= link_to "Cancel", new_story_word_path(story) %>
+  <% end %>
 <% end %>

@@ -8,6 +8,6 @@
 
 <%= yield %>
 
-<% if !is_admin? %>
-  <%= button_to "Cancel", author_stories_path(current_author), method: :get %>
+<% if story.id.nil? %>
+  <%= link_to "Cancel", author_stories_path(current_author), method: :get %>
 <% end %>
