@@ -2,20 +2,22 @@ class Word < ApplicationRecord
   has_many :glosses
   has_many :stories, through: :glosses, dependent: :destroy
 
-  accepts_nested_attributes_for :glosses
+  # accepts_nested_attributes_for :glosses
 
   validates :lemma,
     presence: true
 
 
-  # FIXME: this is not right
-  # def gloss_attributes=(gloss_attributes)
-  #   # raise gloss_attributes.inspect
-  #   gloss_attributes.values.each do |gloss_attribute|
-  #     gloss = Gloss.find_or_create_by(gloss_attribute)
-  #     self.glosses.build(gloss: gloss)
-  #   end
-  # end
+  def glosses_attributes=(glosses_attributes)
+    glosses_attributes.each do |gloss_attribute|
+      word_id = self.id
+      gloss = gloss_attribute[1][:gloss]
+      story_id = gloss_attribute[1][:story_id]
+
+      gloss = Gloss.find_or_create_by(:gloss => gloss, :story_id => story_id, :word_id => word_id)
+      self.glosses << gloss
+    end
+  end
 
   def self.find_or_create_lemma(word_params)
     Word.find_or_create_by(:lemma => word_params[:lemma],
