@@ -1,5 +1,8 @@
 class Author < ApplicationRecord
   has_secure_password
+
+  has_many :words, dependent: :destroy
+
   has_many :stories, dependent: :destroy
 
   validates :first_name, :last_name, :email,
