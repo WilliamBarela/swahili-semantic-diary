@@ -4,7 +4,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    if (@word = Word.find_or_create_by(:lemma => word_params[:lemma])) && @word.update(word_params)
+    if (@word = Word.find_or_create_lemma(word_params)) && @word.update(word_params)
       redirect_to new_story_word_path(current_story)
     else
       render :new
