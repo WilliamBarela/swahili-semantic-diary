@@ -27,7 +27,7 @@ class Story < ApplicationRecord
   end
 
   def word_glosses
-    self.words.map do |w|
+    self.words.uniq.map do |w|
       {
         :word => w,
         :glosses => w.glosses.collect{|g| g.gloss}.join("; ")
