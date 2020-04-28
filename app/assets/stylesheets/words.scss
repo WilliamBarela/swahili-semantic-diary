@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.new_word *{
+  margin-right: 25px;
+}
+
+.new_word--input{
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .new-word-card{
   width: 800px;
   border-color: rgba(252,210,15,1);
@@ -14,7 +24,7 @@
 }
 
 .glossary-card{
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 20px;
   width: 80%;
 }
