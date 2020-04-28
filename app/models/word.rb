@@ -1,4 +1,6 @@
 class Word < ApplicationRecord
+  belongs_to :author
+
   has_many :glosses
   has_many :stories, through: :glosses, dependent: :destroy
 
@@ -22,6 +24,8 @@ class Word < ApplicationRecord
   def self.find_or_create_lemma(word_params)
     Word.find_or_create_by(:lemma => word_params[:lemma],
                            :lexical_category => word_params[:lexical_category],
-                           :lemma_class => word_params[:lemma_class])
+                           :lemma_class => word_params[:lemma_class],
+                           :author_id => word_params[:author_id]
+                          )
   end
 end
