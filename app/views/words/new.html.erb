@@ -35,7 +35,7 @@
         </div>
         <div>
           <%= f.label :lemma_class %>
-          <%= f.select :lemma_class, ["trans", "intrs", "m-/wa-", "m-/mi-", "ji-/ma-", "ki-/vi", "n-/n-", "u-/u-", "ku-", "pa-"] %>
+          <%= f.select :lemma_class, ["trans", "intrs", "m-/wa-", "m-/mi-", "ji-/ma-", "ki-/vi", "n-/n-", "u-/u-", "ku-", "pa-", ""] %>
         </div>
         <div>
           <%= f.label :origin %>
@@ -52,6 +52,7 @@
           <% glosses = word_gloss[:glosses] %>
 
           <section class="lemma-card newspaper">
+            <span class="lemma-card--delete"><%= link_to "x", story_word_path(current_story,w), method: :delete %></span>
             <span class="lemma-card--lemma"><%= w.lemma %></span>
             <span class="lemma-card--lexical-category"><%= w.lexical_category %></span>
             <span class="lemma-card--lemma-class"><%= w.lemma_class %></span>
