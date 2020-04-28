@@ -12,3 +12,41 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.glossary-card{
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 80%;
+}
+
+.newspaper{
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+
+.lemma-card{
+  margin-top: 5px;
+}
+
+.lemma-card--lemma{
+  font-weight: 900;
+}
+
+.lemma-card--lexical-category {
+  font-variant: small-caps;
+}
+
+.lemma-card--lemma-class{
+  font-style: italic;
+}
+
+.lemma-card--notes{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.lemma-card--origin{
+  font-variant: small-caps;
+  font-style: italic;
+}
