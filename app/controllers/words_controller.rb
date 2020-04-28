@@ -18,6 +18,6 @@ class WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:lemma, :lexical_category, :lemma_class, :notes, :origin, glosses_attributes: [:gloss, :story_id])
+      params.require(:word).permit(:lemma, :lexical_category, :lemma_class, :notes, :origin, :author_id, glosses_attributes: [:gloss, :story_id])
     end
 end
