@@ -22,4 +22,10 @@
       <%= f.submit "Add Word" %>
     <% end %>
   </article>
+
+  <% if !@story_word_glosses.empty? %>
+    <article class="words-card">
+      <p><%= @story_word_glosses %></p>
+    </article>
+  <% end %>
 </main>
