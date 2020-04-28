@@ -11,15 +11,37 @@
     <h2>Glossary</h2>
     <% # form_with model: [@word, @gloss], local: true, cache: false do |f| %>
     <%= form_for(@word, url: story_words_path(current_story, @word)) do |f| %>
-      <%= f.text_field :lemma, :placeholder => "Swahili base word", :autofocus => true %>
-      <%= f.text_field :lexical_category, :placeholder => "Noun, verb, pronoun, etc." %>
-      <%= f.text_field :lemma_class, :placeholder => "Swahili noun class, transitive, or instansitive verb, etc." %>
-      <%= f.text_field :notes, :placeholder => "Plural, irregularity, etc." %>
-      <%= f.text_field :origin, :placeholder => "Bantu, Arabic, English, etc." %>
-      <%= f.fields_for :glosses, @word.glosses.build do |g| %>
-        <%= g.text_field :gloss, :placeholder => "Gloss for this word" %>
-        <%= g.hidden_field :story_id, :value => current_story.id %>
-      <% end %>
+      <section class="new_word--input">
+        <div>
+          <%= f.label :lemma %>
+          <%= f.text_field :lemma, :placeholder => "Swahili base word", :autofocus => true %>
+        </div>
+        <div>
+          <%= f.fields_for :glosses, @word.glosses.build do |g| %>
+            <%= g.label :gloss %>
+            <%= g.text_field :gloss, :placeholder => "Gloss for this word" %>
+            <%= g.hidden_field :story_id, :value => current_story.id %>
+          <% end %>
+        </div>
+        <div>
+          <%= f.label :notes %>
+          <%= f.text_field :notes, :placeholder => "Plural, irregularity, etc." %>
+        </div>
+      </section>
+      <section class="new_word--input">
+        <div> 
+          <%= f.label :lexical_category %>
+          <%= f.select :lexical_category, ["noun", "pron", "verb", "adj", "adv", "prep", "conj", "det", "intj",""] %>
+        </div>
+        <div>
+          <%= f.label :lemma_class %>
+          <%= f.select :lemma_class, ["trans", "intrs", "m-/wa-", "m-/mi-", "ji-/ma-", "ki-/vi", "n-/n-", "u-/u-", "ku-", "pa-"] %>
+        </div>
+        <div>
+          <%= f.label :origin %>
+          <%= f.select :origin, ["Bantu", "Arabic", "Persian", "Hindi", "English", ""] %>
+        </div>
+      </section>
       <%= f.submit "Add Word" %>
     <% end %>
 
