@@ -24,7 +24,19 @@
 
     <% if !current_story.word_glosses.empty?  %>
       <article class="glossary-card">
-        <p><%= current_story.word_glosses %></p>
+        <% current_story.word_glosses.each do |word_gloss| %>
+          <% w = word_gloss[:word] %>
+          <% glosses = word_gloss[:glosses] %>
+
+          <section class="lemma-card">
+            <span class="lemma-card--lemma"><%= w.lemma %></span>
+            <span class="lemma-card--lexical-category"><%= w.lexical_category %></span>
+            <span class="lemma-card--lemma_class"><%= w.lemma_class %></span>
+            <span class="lemma-card--notes"><%= w.notes %></span>
+            <span class="lemma-card--origin"><%= w.origin %></span>
+            <span class="lemma-card--glosses"><%= glosses %></span>
+          </section>
+        <% end %>
       </article>
     <% end %>
   </article>
