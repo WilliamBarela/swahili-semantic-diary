@@ -25,4 +25,13 @@ class Story < ApplicationRecord
   def story_word_length
     self.story.split(" ").length
   end
+
+  def word_glosses
+    self.words.map do |w|
+      {
+        :word => w,
+        :glosses => w.glosses.collect{|g| g.gloss}.join("; ")
+      }
+    end
+  end
 end
