@@ -41,6 +41,9 @@ a:hover{
   color: rgba(0,164,222,0.7);
 }
 
+button{
+}
+
 .sign-up-card, .sign-in-card, .edit-card{
   width: 300px;
 }
@@ -79,6 +82,11 @@ input[type=checkbox]{
 
 input[type=submit]{
   width: 100px;
+  color: rgba(0,164,222,1);
+}
+
+input[type=submit]:hover{
+  color: rgba(0,164,222,0.7);
 }
 
 select{
