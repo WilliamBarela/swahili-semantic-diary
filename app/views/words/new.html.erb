@@ -17,6 +17,7 @@
       <%= f.text_field :origin, :placeholder => "Bantu, Arabic, English, etc." %>
       <%= f.fields_for :glosses, @word.glosses.build do |g| %>
         <%= g.text_field :gloss, :placeholder => "Gloss for this word" %>
+        <%= g.hidden_field :story_id, :value => current_story.id %>
       <% end %>
       <%= f.submit "Add Word" %>
     <% end %>
