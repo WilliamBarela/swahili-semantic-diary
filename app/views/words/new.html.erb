@@ -8,6 +8,7 @@
   </article>
 
   <article class="new-word-card">
+    <h2>Glossary</h2>
     <% # form_with model: [@word, @gloss], local: true, cache: false do |f| %>
     <%= form_for(@word, url: story_words_path(current_story, @word)) do |f| %>
       <%= f.text_field :lemma, :placeholder => "Swahili base word", :autofocus => true %>
@@ -28,13 +29,13 @@
           <% w = word_gloss[:word] %>
           <% glosses = word_gloss[:glosses] %>
 
-          <section class="lemma-card">
+          <section class="lemma-card newspaper">
             <span class="lemma-card--lemma"><%= w.lemma %></span>
             <span class="lemma-card--lexical-category"><%= w.lexical_category %></span>
-            <span class="lemma-card--lemma_class"><%= w.lemma_class %></span>
+            <span class="lemma-card--lemma-class"><%= w.lemma_class %></span>
             <span class="lemma-card--notes"><%= w.notes %></span>
             <span class="lemma-card--origin"><%= w.origin %></span>
-            <span class="lemma-card--glosses"><%= glosses %></span>
+            <p class="lemma-card--glosses"><%= glosses %></p>
           </section>
         <% end %>
       </article>
