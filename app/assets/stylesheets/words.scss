@@ -39,8 +39,14 @@
   margin-top: 5px;
 }
 
-.lemma-card--delete{
+.lemma-card--delete a:link{
   font-family: monospace;
+  color: rgba(189,0,0,1);
+  font-size: 1.4em;
+}
+
+.lemma-card--delete a:hover{
+  color: rgba(189,0,0,0.7);
 }
 
 .lemma-card--lemma{
