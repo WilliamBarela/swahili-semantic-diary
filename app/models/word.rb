@@ -4,6 +4,10 @@ class Word < ApplicationRecord
 
   accepts_nested_attributes_for :glosses
 
+  validates :lemma,
+    presence: true
+
+
   # FIXME: this is not right
   # def gloss_attributes=(gloss_attributes)
   #   # raise gloss_attributes.inspect
