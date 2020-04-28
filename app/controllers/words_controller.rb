@@ -1,16 +1,14 @@
 class WordsController < ApplicationController
   def new
     @word = Word.new
-    @story_word_glosses = current_story.word_glosses
   end
 
   def create
     @word = Word.new(word_params)
     if @word.save
-      redirect_to author_stories_path(current_author)
+      redirect_to new_story_word_path(current_story)
     else
-      # FIXME render :new
-      raise "word not saved :(".inspect
+      render :new
     end
   end
 
