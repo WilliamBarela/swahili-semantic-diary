@@ -10,10 +10,15 @@ class AuthorsController < ApplicationController
   #                  DELETE       /authors/:id(.:format)           authors#destroy
 
   before_action :authenticate_author!
-  before_action :redirect_if_not_admin, only: [:index, :destroy]
+  before_action :redirect_if_not_admin, only: [:index, :destroy, :search]
 
   def index
-    @authors = Author.all
+    @authors ||= Author.all
+  end
+
+  def search
+    @authors = Author.find_author(search_params)
+    render :index
   end
 
   def show
@@ -43,5 +48,9 @@ class AuthorsController < ApplicationController
   private
   def author_params
     params.require(:author).permit(:first_name, :last_name, :email, :admin)
+  end
+
+  def search_params
+    params.permit(:query)
   end
 end
