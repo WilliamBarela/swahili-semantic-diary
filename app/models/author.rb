@@ -5,6 +5,8 @@ class Author < ApplicationRecord
 
   has_many :stories, dependent: :destroy
 
+  scope :most_stories, -> { left_joins(:stories).group("authors.id").order("COUNT(stories.author_id) DESC") }
+
   validates :first_name, :last_name, :email,
     presence: true
 
@@ -28,9 +30,11 @@ class Author < ApplicationRecord
     return author
   end
 
-  def self.most_stories
-    Story.joins(:author).group(:author_id).count.first(5).map do |item|
-      {:author => Author.find_by_id(item[0]), :num_stories => item[1]}
-    end
-  end
+  # replaced by scope method :most_stories
+  # def self.most_stories
+  #   Author
+  #     .left_joins(:stories)
+  #     .group("authors.id")
+  #     .order("COUNT(stories.author_id) DESC")
+  # end
 end
