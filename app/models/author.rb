@@ -7,7 +7,8 @@ class Author < ApplicationRecord
 
   scope :most_stories, -> { left_joins(:stories).group("authors.id").order("COUNT(stories.author_id) DESC") }
 
-  scope :find_author, ->(search_params) { where(first_name: search_params[:query])}
+  # READ: https://www.postgresql.org/docs/9.6/functions-matching.html#FUNCTIONS-POSIX-TABLE
+  scope :find_author, ->(search_params) { where("first_name ~* ?", "^#{search_params[:query]}")}
 
   validates :first_name, :last_name, :email,
     presence: true
