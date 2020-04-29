@@ -1,6 +1,13 @@
 <main>
   <%= button_to "Author Stats", admin_stats_path, method: :get%>
   <h1>Swahili Semantic Diary Authors</h1>
+
+  <%= form_with(url: admin_search_path, local: true, method: "get") do %>
+    <% label_tag(:query, "search for:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
   <% @authors.each do |author|%>
     <section class="author-card">
       <h2><%= link_to "#{author.first_name} #{author.last_name}", author_path(author), method: :get %></h2>
