@@ -1,12 +1,11 @@
 <main>
   <%= button_to "Author List", authors_path, method: :get%>
-  <h1>Top Authors</h1>
-  <% @most_stories.each do |item| %>
-    <% author = item[:author] %>
+  <h1>Top 3 Authors</h1>
+  <% @most_stories.limit(3).each do |author| %>
     <section class="author-card">
       <h2><%= link_to "#{author.first_name} #{author.last_name}", author_path(author), method: :get %></h2>
       <h3><%= "#{author.email}" %></h3>
-      <h3>Total Number of Stories: <%= item[:num_stories] %></h3>
+      <h3>Total Number of Stories: <%= author.stories.count %></h3>
     </section>
   <% end %>
-</main>
+</main:>
