@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :words, only: [:new, :create, :destroy]
   end
 
+  get '/admin/search', to: 'authors#search'
+
   scope '/admin' do
     resources :authors, only: [:index]
   end
