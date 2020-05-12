@@ -11,7 +11,7 @@ The installation of PostgreSQL is highly dependent on the OS one chooses as is R
 - [PostgreSQL 11 Installation](https://wiki.postgresql.org/wiki/Apt "PostgreSQL 11 Installation")
 - [RVM](https://rvm.io/ "RVM")
 - [Ruby 2.7.0](https://www.ruby-lang.org/en/ "Ruby 2.7.0")
-- [Rails 6.0.2.2](https://github.com/rails/rails/tree/v6.0.2.2 "Rails 6.0.2.2")
+- [Rails 6.0.3](https://github.com/rails/rails/tree/v6.0.3 "Rails 6.0.3")
 
 ## Set up
 ### Use RVM to install Ruby 2.7.0.
@@ -32,7 +32,7 @@ gem update --system
 # if you want to save disk space, run:
 echo "gem: --no-ri --no-rdoc" >> $HOME/.gemrc
 
-gem install rails -v 6.0.2.2
+gem install rails -v 6.0.3
 gem install bundler pg pry rspec
 
 # command used to set up files for Rails to use PostgreSQL (don't run):
